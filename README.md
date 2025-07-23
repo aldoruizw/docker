@@ -1,9 +1,11 @@
-# 🐳 Docker Stacks for Raspberry Pi
+# 🐳 Portainer Stacks for Raspberry Pi
 
-This repository contains my personal **Docker Compose stacks** running on my Raspberry Pi setup. Each stack is defined in its own file for easy management, deployment, and versioning.
+This repository contains my personal **Portainer stacks** managed with Docker on my Raspberry Pi setup. Each stack is defined as a single `docker-compose` file for easy deployment and maintenance.
 
 ---
 
 ## 🚀 Overview
 
-These stacks include self-hosted services, development tools, and utilities optimized for ARM architecture (Raspberry Pi 4/5). The goal is to keep everything **lightweight, reproducible, and well documented**.
+These stacks include self-hosted services, databases, and utilities optimized for ARM architecture (Raspberry Pi 4/5). Managed via **Portainer** for simplicity and centralized control.
+
+---
