@@ -6,7 +6,7 @@ services:
     container_name: filebrowser
     restart: unless-stopped
     ports:
-      - 9090:80
+      - 30080:80
     volumes:
       - /home/pi:/srv/home #Shared directory
       - /media/sda1:/srv/usb #Shared directory
