@@ -1,6 +1,6 @@
-# 🐳 Portainer Stacks for Raspberry Pi
+# 🐳 Docker containers for Raspberry Pi
 
-This repository contains my personal **Portainer stacks** managed with Docker on my Raspberry Pi setup. Each stack is defined as a single `docker-compose` file for easy deployment and maintenance.
+This repository contains my personal **containers** managed with Docker on my Raspberry Pi setup. Each stack is defined as a single `docker-compose` file for easy deployment and maintenance.
 
 ---
 
