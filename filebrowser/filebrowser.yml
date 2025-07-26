@@ -8,8 +8,9 @@ services:
     ports:
       - 30080:80
     volumes:
-      - /home/pi:/srv/home #Shared directory
-      - /media/sda1:/srv/usb #Shared directory
+      - /home/pi/container/filebrowser:/config  # Config volume to persist user settings
+      - /home/pi:/srv/home                      #Shared directory
+      - /media/sda1:/srv/usb                    #Shared directory 
     environment:
       - PUID=1000
       - PGID=1000
