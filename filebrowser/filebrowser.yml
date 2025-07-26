@@ -8,9 +8,12 @@ services:
     ports:
       - 30080:80
     volumes:
-      - /home/pi/container/filebrowser:/config  # Config volume to persist user settings
-      - /home/pi:/srv/home                      # Shared directory
-      - /media/sda1:/srv/usb                    # Shared directory
+      - /home/pi/container/filebrowser/database:/database   # database volume to persist user settings
+      - /home/pi/container/filebrowser/config:/config       # config volume to persist user settings
+      - /home/pi:/srv/home                                  # Shared directory
+      - /media/sda1:/srv/usb                                # Shared directory
+      - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
+      - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
     environment:
       - PUID=1000
       - PGID=1000
