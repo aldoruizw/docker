@@ -1,12 +1,17 @@
 # Portainer Setup with Docker
 
-This repository contains Docker stacks managed via Portainer, running on a Raspberry Pi.
+To get started with Portainer using Docker:
 
-## Quick Start
+1. **Create a Docker volume that will contain the data managed by the Portainer server**  
+   Run:  
+   `docker volume create portainer_data`
 
-### 1. Create a Docker volume
+2. **Create a docker-compose.yaml file with the script portainer.yml**  
 
-This volume will store Portainer's persistent data:
+3. **Create the container**  
+   Start it using Docker Compose:  
+   `docker-compose up -d`
 
-```bash
-docker volume create portainer_data
+4. **Access Portainer**  
+   Open your browser and go to:  
+   `https://localhost:9443`
