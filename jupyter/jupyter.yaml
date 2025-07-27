@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  jupyter:
+    image: quay.io/jupyter/base-notebook
+    container_name: jupyter
+    restart: unless-stopped
+    ports:
+      - 38888:8888
+    volumes:
+      - /home/pi/container/jupyter:/home/jovyan/work
+      - /usr/share/zoneinfo/America/Montreal:/etc/localtime
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - GRANT_SUDO=yes
+    command: start-notebook.sh --NotebookApp.token='token'
