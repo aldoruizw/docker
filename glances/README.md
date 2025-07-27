@@ -9,7 +9,7 @@
 
 ## 📦 Docker Setup
 
-1. **Create the container using the `glances.yml` Docker Compose file**
+1. **Create the container using the `glances.yaml` Docker Compose file**
 
 3. **Access Glances Web UI**
    Open your browser and go to:
