@@ -11,9 +11,14 @@ Easily manage and share files on your Raspberry Pi through a web-based interface
 
 ## 📦 Docker Setup
 
-1. **Create the container using the `filebrowser.yaml` compose file**
+1. **To avoid permission issues when working with Filebrowser and accessing your external disk, make sure to give ownership of the disk to the `pi` user:**
+```bash
+sudo chown -R pi:pi /media/sda1
+```
 
-2. **Get the admin password**
+2. **Create the container using the `filebrowser.yaml` compose file**
+
+3. **Get the admin password**
 You can get the password by checking the container logs using Portainer or by running the command:
 ```bash
 docker logs filebrowser
@@ -27,7 +32,7 @@ You should see output like this with the randomly generated admin password:
 2025/07/26 19:06:43 Listening on [::]:80
 ```
 
-3. **Access FileBrowser**
+4. **Access FileBrowser**
 Open your browser and go to:
 ```
 http://<your-raspberry-pi-ip>:30080
