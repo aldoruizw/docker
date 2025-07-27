@@ -18,7 +18,7 @@ To get started with Portainer using Docker:
 3. **🌐 Access the Portainer Web UI**
    - Open your browser and go to:
      ```
-     https://localhost:9443
+     https://<your-raspberry-pi-ip>:39443
      ```
    - On first access, you’ll be prompted to set up an admin user.
 
