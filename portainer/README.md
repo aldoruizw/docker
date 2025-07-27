@@ -24,7 +24,7 @@ To get started with Portainer using Docker:
 
 ✅ You’re now ready to manage your containers with a powerful, user-friendly interface!
 
-✅ **Note:** Doc `https://docs.portainer.io/start/install-ce/server/docker/linux`
+✅ Reference: [Install Portainer CE with Docker on Linux](https://docs.portainer.io/start/install-ce/server/docker/linux)
 
 # 🔁 Update Portainer to the Latest Version
 
