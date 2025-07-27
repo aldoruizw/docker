@@ -1,0 +1,13 @@
+# ⚠️ WARNING: This Docker Compose file is not functional. Work in progress.
+version: "2"
+services:
+  rtorrent:
+    image: pablokbs/rutorrent-armhf
+    ports:
+      - 80:80
+      - 51413:51413
+      - 6881:6881/udp
+    volumes:
+      - /media/usb2/torrents-config/rtorrent:/config/rtorrent
+      - /media/usb2/downloads:/downloads
+    restart: unless-stopped
