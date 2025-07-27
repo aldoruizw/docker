@@ -1,0 +1,61 @@
+version: "3.8"
+services:
+  gluetun:
+    image: qmcgaw/gluetun:latest
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+    volumes:
+      - /home/pi/container/gluetun/wireguard/dns3Rclone.conf:/gluetun/wireguard/wg0.conf
+    restart: unless-stopped
+    ports:
+      - 3000:3000 # Expose Firefox HTTP access
+      - 3001:3001 # Expose Firefox HTTPS access
+      - 5800:5800 # Expose Jdownloader2 HTTP access
+
+  rclone:
+    container_name: rclone
+    image: rclone/rclone:latest
+    restart: unless-stopped
+    command: config
+    privileged: true
+    volumes:
+      - /home/pi/container/rclone:/config/rclone
+      - /media/sda1/GoogleDrive:/media/sda1/GoogleDrive
+    stdin_open: true
+    tty: true
+    network_mode: "service:gluetun"
+    depends_on:
+      - gluetun
+
+  firefox:
+    image: linuxserver/firefox:140.0.2-kasm
+    container_name: firefox
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+
+    volumes:
+      - /home/pi/container/firefox/config:/config:rw
+#      - /media/sda1/Downloads:/config/Downloads:rw
+    shm_size: "1gb"
+    restart: unless-stopped
+    network_mode: "service:gluetun"
+    depends_on:
+      - gluetun
+
+#  jdownloader-2:
+#    image: jlesage/jdownloader-2:latest
+#    container_name: jdownloader-2
+#    restart: unless-stopped
+#    volumes:
+#      - /home/pi/container/jdownloader-2:/config:rw
+#      - /media/sda1/Downloads:/output:rw
+#    network_mode: "service:gluetun"
+#    depends_on:
+#      - gluetun
