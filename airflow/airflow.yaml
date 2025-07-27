@@ -6,7 +6,7 @@ services:
     container_name: airflow
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres_ip_address:5432/airflow #replace postgres_ip_address
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@<postgres_ip_address>:5432/airflow #replace <postgres_ip_address>
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       _AIRFLOW_WWW_USER_USERNAME: airflow
       _AIRFLOW_WWW_USER_PASSWORD: airflow
@@ -15,7 +15,7 @@ services:
       _AIRFLOW_WWW_USER_EMAIL: no@email.local
       AIRFLOW__API__SECRET_KEY: your_secret_key
     ports:
-      - 8080:8080
+      - 38080:8080
     volumes:
       - /home/pi/container/airflow/dags:/opt/airflow/dags
     command: airflow standalone
