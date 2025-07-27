@@ -11,7 +11,7 @@ Easily manage and share files on your Raspberry Pi through a web-based interface
 
 ## 📦 Docker Setup
 
-1. **Create the container using the `filebrowser.yml` compose file**
+1. **Create the container using the `filebrowser.yaml` compose file**
 
 2. **Get the admin password**
 You can get the password by checking the container logs using Portainer or by running the command:
