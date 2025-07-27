@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  cloudbeaver:
+    container_name: cloudbeaver
+    image: dbeaver/cloudbeaver:latest
+    restart: unless-stopped
+    ports:
+      - 8978:8978
+    environment:
+      TZ: America/Montreal
+    volumes:
+      - /home/pi/container/cloudbeaver/:/opt/cloudbeaver/workspace/GlobalConfiguration/
