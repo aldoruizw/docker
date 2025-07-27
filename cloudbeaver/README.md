@@ -1,4 +1,4 @@
-# 🐬 CloudBeaver Setup on Raspberry Pi with Docker
+# ☁️🦫 CloudBeaver Setup on Raspberry Pi with Docker
 
 CloudBeaver is a lightweight, web-based database management interface from the creators of DBeaver. This setup runs CloudBeaver in a Docker container on your Raspberry Pi.
 
@@ -13,7 +13,7 @@ CloudBeaver is a lightweight, web-based database management interface from the c
 
 1. **Create the container using the `cloudbeaver.yaml` compose file**
 
-2. **Access FileBrowser**
+2. **Access CloudBeaver**
 Open your browser and go to:
 ```
 http://<your-raspberry-pi-ip>:38978
