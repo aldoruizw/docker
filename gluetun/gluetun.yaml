@@ -12,9 +12,9 @@ services:
       - /home/pi/container/gluetun/wireguard/dns3Rclone.conf:/gluetun/wireguard/wg0.conf
     restart: unless-stopped
     ports:
-      - 3000:3000 # Expose Firefox HTTP access
-      - 3001:3001 # Expose Firefox HTTPS access
-      - 5800:5800 # Expose Jdownloader2 HTTP access
+      - 33000:3000                           # Expose Firefox HTTP access
+      - 33001:3001                           # Expose Firefox HTTPS access
+#      - 35800:5800                           # Expose Jdownloader2 HTTP access
 
   rclone:
     container_name: rclone
@@ -27,27 +27,25 @@ services:
       - /media/sda1/GoogleDrive:/media/sda1/GoogleDrive
     stdin_open: true
     tty: true
-    network_mode: "service:gluetun"
-    depends_on:
-      - gluetun
+    network_mode: "service:gluetun"          # Use this to route traffic through the 'gluetun' VPN container.
+    depends_on:                              # Use this to route traffic through the 'gluetun' VPN container.
+      - gluetun                              # Use this to route traffic through the 'gluetun' VPN container.
 
   firefox:
     image: linuxserver/firefox:140.0.2-kasm
     container_name: firefox
+    restart: unless-stopped
     security_opt:
       - seccomp:unconfined
     environment:
       - PUID=1000
       - PGID=1000
-
     volumes:
-      - /home/pi/container/firefox/config:/config:rw
-#      - /media/sda1/Downloads:/config/Downloads:rw
+      - /home/pi/container/firefox/config:/config
     shm_size: "1gb"
-    restart: unless-stopped
-    network_mode: "service:gluetun"
-    depends_on:
-      - gluetun
+    network_mode: "service:gluetun"          # Use this to route traffic through the 'gluetun' VPN container.
+    depends_on:                              # Use this to route traffic through the 'gluetun' VPN container.
+      - gluetun                              # Use this to route traffic through the 'gluetun' VPN container.
 
 #  jdownloader-2:
 #    image: jlesage/jdownloader-2:latest
@@ -56,6 +54,6 @@ services:
 #    volumes:
 #      - /home/pi/container/jdownloader-2:/config:rw
 #      - /media/sda1/Downloads:/output:rw
-#    network_mode: "service:gluetun"
-#    depends_on:
-#      - gluetun
+#    network_mode: "service:gluetun"          # Use this to route traffic through the 'gluetun' VPN container.
+#    depends_on:                              # Use this to route traffic through the 'gluetun' VPN container.
+#      - gluetun                              # Use this to route traffic through the 'gluetun' VPN container.
