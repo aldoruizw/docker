@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   postgres:
-    image: postgres:16-alpine
+    image: postgres:17-alpine
     container_name: postgres
     restart: unless-stopped
     environment:
@@ -11,5 +11,3 @@ services:
       - 35432:5432
     volumes:
       - /home/pi/container/postgres/data:/var/lib/postgresql/data
-      - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
-      - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
