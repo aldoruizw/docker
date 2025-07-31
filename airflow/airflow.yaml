@@ -2,21 +2,18 @@ version: '3.8'
 
 services:
   airflow:
-    image: apache/airflow:2.10.5
+    image: apache/airflow:latest                            # image: apache/airflow:2.10.5
     container_name: airflow
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@<postgres_ip_address>:5432/airflow #replace <postgres_ip_address>
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@<postgres_ip_address>:35432/airflow #replace <postgres_ip_address>
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
-      _AIRFLOW_WWW_USER_USERNAME: airflow
-      _AIRFLOW_WWW_USER_PASSWORD: airflow
-      _AIRFLOW_WWW_USER_FIRSTNAME: Air
-      _AIRFLOW_WWW_USER_LASTNAME: Flow
-      _AIRFLOW_WWW_USER_EMAIL: no@email.local
       AIRFLOW__API__SECRET_KEY: your_secret_key
     ports:
       - 38080:8080
     volumes:
       - /home/pi/container/airflow/dags:/opt/airflow/dags
+      - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
+      - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
     command: airflow standalone
     restart: unless-stopped
