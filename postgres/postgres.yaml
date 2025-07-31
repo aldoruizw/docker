@@ -7,7 +7,9 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
       TZ: America/Montreal
+    ports:
+      - 35432:5432
     volumes:
       - /home/pi/container/postgres/data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
+      - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
+      - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
