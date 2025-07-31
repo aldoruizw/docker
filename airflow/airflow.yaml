@@ -6,7 +6,7 @@ services:
     container_name: airflow
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@<postgres_ip_address>:35432/airflow #replace <postgres_ip_address>
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@<postgres_ip_address>:35432/airflow #replace <username>:<password>@<postgres_ip_address>:<postgres_port>/<database>
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__API__SECRET_KEY: your_secret_key
     ports:
