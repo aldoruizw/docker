@@ -4,7 +4,7 @@ services:
   wg-easy:
     environment:
       # Change the server's hostname (clients will connect to):
-      - WG_HOST=yourdns.duckdns.org #your DNS
+      - WG_HOST=yourdns.duckdns.org
       # Change the Web UI Password:
       #- PASSWORD=wireguard
       - PASSWORD_HASH=$$2a$$12$$j24/8cZcyAbNm8WO3XIhcO2I.NsJC0JaaywYRyCSe9sEbxmFG6fSO
@@ -16,8 +16,8 @@ services:
     volumes:
       - ~/.wg-easy:/etc/wireguard
     ports:
-      - "51820:51820/udp"
-      - "51821:51821/tcp"
+      - 51820:51820/udp
+      - 51821:51821/tcp
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
@@ -39,9 +39,9 @@ services:
       - '~/.pihole/etc-pihole:/etc/pihole'
       - './.pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "5353:80/tcp"
+      - 30053:53/tcp
+      - 30053:53/udp
+      - 31080:80/tcp
     restart: unless-stopped
     networks:
       wg-easy:
