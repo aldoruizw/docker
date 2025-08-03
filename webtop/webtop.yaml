@@ -5,8 +5,8 @@ services:
     image: lscr.io/linuxserver/webtop:ubuntu-xfce
     container_name: webtop
     ports:
-      - 9000:3000  # Access via http://<pi>:3000
-      - 9001:3001  # Access via https://<pi>:3001
+      - 31000:3000  # Access via http://<pi>:3000
+      - 31001:3001  # Access via https://<pi>:3001
     environment:
       - PUID=1000
       - PGID=1000
