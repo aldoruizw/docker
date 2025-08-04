@@ -6,12 +6,12 @@ services:
     restart: unless-stopped
     environment:
       VERSION: "11l"
-      VGA: "virtio-gpu"
+#      VGA: "virtio-gpu"
 #      DISK_SIZE: "64G"           # default "64G"
-      RAM_SIZE: "1G"              # default "4G"
-      CPU_CORES: "1"              # default "2"
-      USERNAME: "user"            # default "Docker"
-      PASSWORD: "yourpassword"    # default ""
+      RAM_SIZE: "2G"              # default "4G"
+#      CPU_CORES: "1"              # default "2"
+#      USERNAME: "pi"            # default "Docker"
+#      PASSWORD: "yourpassword"    # default "admin"
 #      REGION: "en-US"            # default "en-US"
 #      KEYBOARD: "en-US"          # default "en-US"
 #      LANGUAGE: "English"        # default "English"
@@ -25,8 +25,9 @@ services:
       - 33389:3389/tcp
       - 33389:3389/udp
     stop_grace_period: 2m
-#    volumes:
-      #-  /media/sda1/Temp:/shared/Temp
+    volumes:
+      - /home/pi/container/windows:/storage
+      - /media/sda1/Downloads:/data # Shared directory
 #    networks:
 #      ipvlan:
 #        ipv4_address: <ipv4_address>
