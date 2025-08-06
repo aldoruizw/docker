@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  minio:
+    image: quay.io/minio/minio:latest
+    container_name: minio
+    restart: unless-stopped
+    ports:
+      - 39000:9000   # S3 API
+      - 39001:9001   # MinIO Console
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: yourpassword
+    volumes:
+      - /media/sda1/minio:/data                     # Object storage (bucket files)
+    command: server /data --console-address ":9001"
