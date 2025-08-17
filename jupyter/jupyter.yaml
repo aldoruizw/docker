@@ -1,15 +1,20 @@
 version: "3.8"
 services:
   jupyter:
-    image: quay.io/jupyter/base-notebook
+    image: quay.io/jupyter/minimal-notebook
     container_name: jupyter
     restart: unless-stopped
     ports:
       - 38888:8888
     volumes:
       - /home/pi/container/jupyter:/home/jovyan/work
-      - /usr/share/zoneinfo/America/Montreal:/etc/localtime
+      - /media/sda1/buckets:/media/sda1/buckets
+      - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
+      - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
     environment:
       - JUPYTER_ENABLE_LAB=yes
       - GRANT_SUDO=yes
     command: start-notebook.sh --NotebookApp.token='token'
+
+# Libraries
+# pip3 install pyarrow
