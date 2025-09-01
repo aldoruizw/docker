@@ -1,3 +1,5 @@
+# WARNING: The following commands/images are only for x86_64 systems.
+# They will fail on Raspberry Pi or other ARM-based devices.
 version: "3.9"
 
 services:
