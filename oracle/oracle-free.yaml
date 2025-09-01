@@ -17,6 +17,8 @@ services:
       retries: 10
       start_period: 5s
 #      start_interval: 5s
-#    volumes:											# Mount a local SQL file to initialize your schema at startup
+    volumes:
+      - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
+      - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
 #      - /home/pi/container/oracle:/opt/oracle/oradata
-#      - my-init.sql:/container-entrypoint-initdb.d/my-init.sql:ro
+#      - my-init.sql:/container-entrypoint-initdb.d/my-init.sql:ro # Mount a local SQL file to initialize your schema at startup
