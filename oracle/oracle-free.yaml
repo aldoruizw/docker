@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  oracle-free:                                    # Name of the Docker Compose service
+    container_name: oracle-free
+    image: gvenzl/oracle-free:latest              # Docker Hub image (feel free to change the tag "latest" to any other available one)
+    restart: unless-stopped
+    ports:                                        # Forward Oracle port to localhost
+    - 31521:1521
+    environment:                                  # Provide passwords and other environment variables to the container
+      ORACLE_PASSWORD: YourPassword123            # sys_user_password
+      APP_USER: APPUSER									          # my_user
+      APP_USER_PASSWORD: YourAppUserPassword123   # password_i_should_change
+    healthcheck:                                  # Customize healthcheck script options for startup
+      test: ['CMD', 'healthcheck.sh']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+#      start_interval: 5s
+#    volumes:											# Mount a local SQL file to initialize your schema at startup
+#      - /home/pi/container/oracle:/opt/oracle/oradata
+#      - my-init.sql:/container-entrypoint-initdb.d/my-init.sql:ro
