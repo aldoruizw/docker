@@ -7,5 +7,5 @@ services:
     ports:
       - 35800:5800
     volumes:
-      - "/home/pi/container/jdownloader-2:/config:rw"
-      - "/media/sda1/Downloads:/output:rw"
+      - /home/pi/container/jdownloader-2:/config:rw
+      - /media/sda1/Downloads:/output:rw
