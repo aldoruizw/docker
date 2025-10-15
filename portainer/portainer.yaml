@@ -1,4 +1,4 @@
-version: "3.1"
+#version: "3.1"
 services:
   portainer-ce:
     image: portainer/portainer-ce:latest
@@ -9,10 +9,10 @@ services:
       - 39443:9443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      - /home/pi/container/portainer/data:/data
       - /etc/localtime:/etc/localtime:ro                    # Sync container time with host localtime
       - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
-volumes:
-  portainer_data:
-    external:
-      name: portainer_data
+#volumes:
+#  portainer_data:
+#    external:
+#      name: portainer_data
