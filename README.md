@@ -34,7 +34,7 @@ sudo systemctl enable docker
 
 ### 4. Install Docker Compose
 ```bash
-sudo apt-get update && sudo apt-get install -y docker-compose
+sudo apt-get update && sudo apt-get install -y docker-compose-plugin docker-buildx-plugin
 ```
 
 ### 5. Reboot the System
