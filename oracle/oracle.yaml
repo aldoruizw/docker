@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  oracle-db:
+    image: container-registry.oracle.com/database/free:latest
+    container_name: oracle
+    ports:
+      - 31521:1521   # SQL*Net Port
+      #- 5500:5500   # Oracle Enterprise Manager Express (Optional)
+    environment:
+      - ORACLE_PWD=YourStrongPassword123!
+      - ORACLE_CHARACTERSET=AL32UTF8
+    #volumes:
+      # Map this to an external SSD path to protect your SD card
+      #- /path/to/your/ssd/data:/opt/oracle/oradata
+    restart: always
+    # Oracle needs a lot of resources; these limits help stability
+    deploy:
+      resources:
+        limits:
+          memory: 4G
