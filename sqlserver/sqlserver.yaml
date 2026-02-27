@@ -1,4 +1,4 @@
-# WARNING: SQL Server container is only for x86_64 systems. It will fail on Raspberry Pi or other ARM-based devices.
+# WARNING: SQL Server container is only for x86_64 systems or Apple Silicon.
 version: "3.9"
 
 services:
@@ -7,11 +7,11 @@ services:
     container_name: sqlserver
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrongPassword123!
       - MSSQL_PID=Express
+      - SA_PASSWORD=YourStrongPassword123!
     restart: unless-stopped
     ports:
-      - 1433:1433
-#    network_mode: host
-#    volumes:
+      - 31433:1433
+    volumes:
+      - /Users/aldo/Downloads/container/sqlserver/var/opt/mssql/backup:/var/opt/mssql/backup
 #      - /home/pi/container/sqlserver/data:/var/opt/mssql
