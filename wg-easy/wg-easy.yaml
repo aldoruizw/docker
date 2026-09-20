@@ -1,3 +1,4 @@
+#failing on Linux kernel 6.18+
 version: "3.1"
 services:
 
@@ -14,8 +15,7 @@ services:
     image: ghcr.io/wg-easy/wg-easy:latest
     container_name: wg-easy
     volumes:
-      - ~/.wg-easy:/etc/wireguard
-      - /lib/modules:/lib/modules:ro
+      - /home/pi/container/wg-easy:/etc/wireguard
     ports:
       - 51820:51820/udp
       - 51821:51821/tcp
@@ -37,8 +37,8 @@ services:
       # Change the Web UI Password:
       - WEBPASSWORD=pihole
     volumes:
-      - '~/.pihole/etc-pihole:/etc/pihole'
-      - './.pihole/etc-dnsmasq.d:/etc/dnsmasq.d'
+      - /home/pi/container/pihole/etc/pihole:/etc/pihole
+      - /home/pi/container/pihole/etc/dnsmasq.d:/etc/dnsmasq.d
     ports:
       - 30053:53/tcp
       - 30053:53/udp
