@@ -11,8 +11,8 @@ services:
       - PGID=1000
       - SERVERURL=yourdns.duckdns.org
       - SERVERPORT=51820
-      - PEERS=client1,client2 # Nombres de tus clientes
-      - PEERDNS=10.8.1.3 # IP interna de Pi-hole
+      - PEERS=client1,client2 # Your clients
+      - PEERDNS=10.8.1.3 # Pi-hole's internal IP address
       - INTERNAL_SUBNET=10.8.0.0/24
       - ALLOWEDIPS=0.0.0.0/0
     volumes:
