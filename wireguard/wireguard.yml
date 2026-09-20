@@ -9,7 +9,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - SERVERURL=yourdns.duckdns.org
+      - SERVERURL=yourdns.duckdns.org # Add yourdns
       - SERVERPORT=51820
       - PEERS=client1,client2 # Your clients
       - PEERDNS=10.8.1.3 # Pi-hole's internal IP address
