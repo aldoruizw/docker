@@ -22,7 +22,6 @@ services:
     volumes:
       - /home/pi/container/plex:/config
       - /home/pi/container/plex/root/.config/rclone:/root/.config/rclone
-#      - /media/rclone/GoogleDrive/Videos:/Videos
 #      - /media/sda1/GoogleDrive/Videos:/Videos
       - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
       - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
