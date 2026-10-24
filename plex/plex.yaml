@@ -1,4 +1,3 @@
-version: "3.1"
 services:
   plex:
     image: lscr.io/linuxserver/plex:latest
@@ -22,7 +21,9 @@ services:
       - PLEX_CLAIM= #optional
     volumes:
       - /home/pi/container/plex:/config
-      - /media/sda1/GoogleDrive/Videos:/Videos
+      - /home/pi/container/plex/root/.config/rclone:/root/.config/rclone
+#      - /media/rclone/GoogleDrive/Videos:/Videos
+#      - /media/sda1/GoogleDrive/Videos:/Videos
       - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
       - /etc/timezone:/etc/timezone:ro                      # Sync container time with host timezone
     restart: unless-stopped
@@ -32,3 +33,9 @@ services:
 #networks:
 #  ipvlan:
 #    external: true
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/fuse:/dev/fuse
+    security_opt:
+      - apparmor:unconfined
