@@ -4,13 +4,13 @@ Steps to install rclone inside the `linuxserver/plex` container and mount a Goog
 
 ## 1. Connect to the container as root
  
-```sh
-docker exec -it plex sh
+```bash
+docker exec -it plex /bin/bash
 ```
  
 ## 2. Install rclone and FUSE
  
-```sh
+```bash
 apt-get update && apt-get install -y curl unzip ca-certificates
 curl https://rclone.org/install.sh | bash
 apt-get install -y fuse3
@@ -18,7 +18,7 @@ apt-get install -y fuse3
  
 ## 3. Configure the rclone remote
  
-```sh
+```bash
 rclone config
 ```
  
@@ -29,13 +29,13 @@ The config is stored in `/root/.config/rclone/rclone.conf` (persisted by the vol
  
 ## 4. Create the videos folder
  
-```sh
+```bash
 mkdir /Videos
 ```
  
 ## 5. Mount automatically when the container restarts
  
-```sh
+```bash
 mkdir -p /config/scripts /custom-cont-init.d
 cat > /config/scripts/rclone-mount.sh <<'EOF'
 #!/bin/bash
@@ -52,14 +52,14 @@ ln -sf /config/scripts/rclone-mount.sh /custom-cont-init.d/10-rclone.sh
  
 Restart the container and check that `/Videos` contains your files:
  
-```sh
+```bash
 docker restart plex
 docker exec plex ls /Videos
 ```
  
 Or mount it manually right away:
  
-```sh
+```bash
 rclone mount GoogleDrive: /Videos --read-only --allow-other --daemon --vfs-cache-mode full --vfs-cache-max-size 40G --vfs-cache-max-age 24h --vfs-read-ahead 256M --buffer-size 64M --dir-cache-time 12h --poll-interval 1m
 ```
  
