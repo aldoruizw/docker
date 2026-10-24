@@ -20,7 +20,7 @@ services:
       - VERSION=docker
       - PLEX_CLAIM= #optional
     volumes:
-      - /home/pi/container/plex:/config
+      - /home/pi/container/plex/config:/config
       - /home/pi/container/plex/root/.config/rclone:/root/.config/rclone
 #      - /media/sda1/GoogleDrive/Videos:/Videos
       - /etc/localtime:/etc/localtime:ro                    # Sync container time with host timezone
