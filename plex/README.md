@@ -22,19 +22,14 @@ apt-get install -y fuse3
 rclone config
 ```
 ```
-Current remotes:
-
-Name                 Type
-====                 ====
-
-e) Edit existing remote
+2026/10/25 19:58:07 NOTICE: Config file "/config/rclone/rclone.conf" not found - using defaults
+No remotes found, make a new one?
 n) New remote
-d) Delete remote
-r) Rename remote
-c) Copy remote
 s) Set configuration password
 q) Quit config
-- e/n/d/r/c/s/q> n
+```
+- n/s/q> n
+```
 Enter name for new remote.
 ```
 - name>`GoogleDrive`
