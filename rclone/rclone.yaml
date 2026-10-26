@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   rclone:
     container_name: rclone
@@ -8,7 +7,8 @@ services:
     privileged: true
     network_mode: host
     volumes:
-      - /usr/share/zoneinfo/America/Lima:/etc/localtime
+      - /home/pi/container/rclone/config/rclone:/config/rclone
       - /media/sda1/GoogleDrive:/media/sda1/GoogleDrive
+      - /usr/share/zoneinfo/America/Lima:/etc/localtime
     stdin_open: true
     tty: true
